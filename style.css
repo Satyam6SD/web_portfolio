@@ -1,0 +1,376 @@
+/* Base layout: make footer stay at bottom, content flexible */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+  color: #fff;
+  background-color: #000;
+  box-sizing: border-box;
+}
+
+/* Navbar base */
+.top-nav {
+  background-color: #111;
+  padding: 0.6em 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1000;
+}
+
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav li {
+  margin: 0 0.8em;
+}
+
+.top-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1.1em;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.top-nav a:hover {
+  background-color: #333;
+  color: #4caf50;
+  transform: translateY(-2px);
+}
+
+/* Hamburger icon */
+.nav-toggle {
+  display: none;
+  position: absolute;
+  right: 1em;
+  top: 0.6em;
+  font-size: 1.8em;
+  cursor: pointer;
+  color: #fff;
+  z-index: 1100;
+}
+
+/* Main home container: takes space between navbar and footer */
+.home-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2em;
+  box-sizing: border-box;
+}
+
+/* Move content slightly above center on large screens only */
+@media (min-width: 769px) {
+  .home-container {
+    transform: translateY(-10%);
+  }
+}
+
+/* Left text block */
+.home-left {
+  flex: 1;
+  min-width: 250px;
+  padding: 1em;
+}
+
+.home-left h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.home-left p {
+  font-size: 1.2em;
+}
+
+/* Right circular photo */
+.home-right {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+  padding: 1em;
+}
+
+.home-right img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: #fff;
+  border: 4px solid #fff;
+}
+
+/* Footer with social icons */
+footer {
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  width: 100%;
+}
+
+.social-icons {
+  margin-top: 0.5em;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 0.5em;
+  font-size: 1.4em;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #4caf50;
+}
+
+/* Buttons */
+button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Projects grid & cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1em;
+  padding: 2em;
+}
+
+.card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 1em;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.projects-grid .card p {
+  color: #ccc;
+}
+
+/* Skills progress bars */
+.skill {
+  margin: 1em 0;
+}
+
+.skill p {
+  margin: 0 0 0.3em;
+}
+
+.progress {
+  background-color: #444;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #4caf50;
+  width: 0;
+  transition: width 1s;
+}
+
+/* Responsive: hamburger & toggle on small screens */
+@media (max-width: 768px) {
+  .top-nav ul {
+    flex-direction: column;
+    display: none; /* hide by default */
+    width: 100%;
+    background-color: #111; /* keep same background */
+    padding: 0;
+  }
+
+  .top-nav ul.show {
+    display: flex; /* show when toggled */
+  }
+
+  .top-nav li {
+    margin: 0.5em 0;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+/* Skills page styling */
+.skills {
+  max-width: 1000px;
+  margin: 2em auto;
+  padding: 2em;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+}
+
+.skills h1 {
+  color: #4caf50;
+  margin-bottom: 0.8em;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.skills-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2em;
+}
+
+.skill-card {
+  background-color: #2a2a2a;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.skill-card h3 {
+  margin-top: 0;
+  color: #4caf50;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.skill-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-card li {
+  margin-bottom: 0.4em;
+  padding-left: 1em;
+  position: relative;
+}
+
+.skill-card li::before {
+  content: "✔";
+  color: #4caf50;
+  position: absolute;
+  left: 0;
+}
+
+/* Soft skills tags */
+.soft-skills {
+  margin-top: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em;
+  justify-content: center;
+}
+
+.soft-skills span {
+  background-color: #2a2a2a;
+  padding: 0.4em 0.8em;
+  border-radius: 6px;
+  font-size: 0.95em;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+/* Contact page styling */
+.contact {
+  max-width: 600px;
+  margin: 2em auto;
+  padding: 2em;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.contact h1 {
+  color: #4caf50;
+  margin-bottom: 0.5em;
+}
+
+.contact p {
+  margin-bottom: 1.5em;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3em;
+  color: #4caf50;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6em;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.contact button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 0.6em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.contact button:hover {
+  background-color: #45a049;
+}
+
+.contact-socials {
+  margin-top: 1.5em;
+}
+
+.contact-socials a {
+  color: #4caf50;
+  margin: 0 0.5em;
+  text-decoration: none;
+}
+
+.contact-socials a:hover {
+  text-decoration: underline;
+}
